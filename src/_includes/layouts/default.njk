@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="{{ metadata.lang or "en" }}">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="color-scheme" content="light dark">
+	<meta name="generator" content="{{ eleventy.generator }}">
+
+	<title>{{ metadata.title or hcard.name }}</title>
+	<meta name="author" content="{{ hcard.name }}">
+	<meta name="description" content="{{ hcard.note }}">
+
+	<!-- ogp.me -->
+	<meta property="og:url" content="{{ hcard.url }}">
+	<meta property="og:site_name" content="{{ metadata.title or hcard.name }}">
+	<meta property="og:description" content="{{ metadata.description or hcard.note }}">
+	<meta property="og:locale" content="{{ metadata.locale or "en_US" }}">
+	<meta property="og:type" content="website">
+
+	<!-- stylesheets -->
+	<link rel="stylesheet" type="text/css" href="/css/main.css">
+	<link rel="stylesheet" type="text/css" href="https://neat.joeldare.com/neat.css">
+
+	<!-- indieweb building blocks -->
+	{%- for rel, href in blocks %}
+	<link rel="{{ rel }}" href="{{ href }}">
+	{%- endfor %}
+
+	<!-- feeds -->
+	<link rel="feed" href="/feed.xml" type="application/atom+xml" title="Atom Feed">
+</head>
+<body>
+	{% include "partials/header.njk" %}
+	<main>
+	{{ content | safe }}
+	</main>
+	{% include "partials/footer.njk" %}
+</body>
+</html>

@@ -1,0 +1,24 @@
+{%- set watchOf = ('watch-of' | getVariables) or entry.data['watch-of'] -%}
+{%- set progress = progress or entry.data.progress %}
+{%- set rewatch = rewatch or entry.data.rewatch %}
+{%- set rating = rating or entry.data.rating %}
+<article class="h-entry">
+	<h3>
+		<data class="p-x-progress" value="{{ progress }}">{{ 'Rewatched' if rewatch else 'Watched' }}</data>
+		<span class="u-watch-of h-cite">
+			<a class="u-url" href="{{ watchOf.url }}">{#
+				#}<span class="p-name">{{ watchOf.name }}</span>, <span class="dt-published">{{ watchOf.published }}</span>{#
+			#}</a>
+			<img class="u-photo" src="{{ watchOf.photo }}" alt="{{ watchOf.name }} ({{ watchOf.published }}) poster" hidden>
+			<data class="p-uid" hidden>{{ watchOf.uid }}</data>
+		</span>
+		- <data class="p-rating" value="{{ rating }}">{{ rating | toStars }}</data>
+	</h3>
+	<p class="center">
+		<img src="{{ watchOf.photo }}" alt="{{ watchOf.name }} ({{ watchOf.published }}) poster">
+	</p>
+	<section class="e-content">
+	{{ (content or entry.content) | safe -}}
+	</section>
+	{% include "partials/entry/footer.njk" %}
+</article>

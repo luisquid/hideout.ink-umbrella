@@ -1,0 +1,9 @@
+<article class="h-entry">
+	{%- if entry.data.title or entry.title %}
+	<h3 class="p-title">{{ entry.data.title or entry.title }}</h3>
+	{%- endif %}
+	<section class="e-content">
+	{{ (content or entry.content) | safe -}}
+	</section>
+	{% include "partials/entry/footer.njk" %}
+</article>

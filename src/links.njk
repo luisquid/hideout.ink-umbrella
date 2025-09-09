@@ -1,0 +1,9 @@
+---
+layout: layouts/default.njk
+eleventyExcludeFromCollections: true
+---
+<ul class="links">
+	{%- for link in links.items %}
+	<li><a href="{{ link.url }}">{{ link.label or link.url }}</a></li>
+	{%- endfor %}
+</ul>

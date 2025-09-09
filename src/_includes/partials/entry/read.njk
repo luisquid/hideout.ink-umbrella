@@ -1,0 +1,30 @@
+{%- set readOf = ('read-of' | getVariables) or entry.data['read-of'] -%}
+{%- set progress = progress or entry.data.progress %}
+{%- set status = {
+	want: 'Want to read',
+	started: 'Reading',
+	finished: 'Read',
+	stopped: 'Did Not Finish'
+} -%}
+{%- set rating = rating or entry.data.rating %}
+<article class="h-entry">
+	<h3>
+		<data class="p-x-progress" value="{{ progress }}">{{ status[progress] }}</data>
+		<span class="u-read-of h-cite">
+			<a class="u-url" href="{{ readOf.url }}"><span class="p-name">{{ readOf.name }}</span></a>
+			by <span class="p-author">{{ readOf.author }}</span>
+			<img class="u-photo" src="{{ readOf.photo }}" alt="{{ readOf.name }} by {{ readOf.author }} cover" hidden>
+			<data class="p-uid" hidden>{{ readOf.uid }}</data>
+		</span>
+		{%- if rating %}
+		- <data class="p-rating" value="{{ rating }}">{{ rating | toStars }}</data>
+		{% endif %}
+	</h3>
+	<p class="center">
+		<img src="{{ readOf.photo }}" alt="{{ readOf.name }} by {{ readOf.author }} cover">
+	</p>
+	<section class="e-content">
+	{{ (content or entry.content) | safe -}}
+	</section>
+	{% include "partials/entry/footer.njk" %}
+</article>

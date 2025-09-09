@@ -1,0 +1,19 @@
+---
+layout: layouts/default.njk
+pagination:
+  data: collections.tagList
+  size: 1
+  alias: tag
+permalink: /tags/{{ tag | slug }}/
+eleventyComputed:
+  title: 'tagged "{{ tag }}"'
+---
+<h1>{{ title }}</h1>
+<section>
+	<ul class="h-feed">
+		{% for item in collections.tagList[tag] %}
+		<li><a href="{{ item.url | url }}">{{ item.data.title or item.url }}</a> - {{item.data.date | dateToFormat('yyyy-MM-dd HH:mm') }}</a></li>
+		{% endfor %}
+	</ul>
+</section>
+<ul>

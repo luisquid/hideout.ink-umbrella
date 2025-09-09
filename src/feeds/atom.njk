@@ -1,0 +1,19 @@
+---
+layout: null
+eleventyExcludeFromCollections: true
+pagination:
+  data: feeds
+  size: 1
+  alias: feed
+feeds:
+- article
+- bookmark
+- note
+- read
+- watch
+- feed
+- all
+permalink: "/{{ feed }}.atom"
+---
+{%- set entries = collections[feed] | reverse | limit(10) %}
+{%- include "layouts/atom.njk" %}

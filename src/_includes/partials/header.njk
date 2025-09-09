@@ -1,0 +1,21 @@
+<header>
+	<section class="between">
+		<nav>
+			<ul>
+				<li><a href="/">Home</a></li>
+				<li><a href="/feed">Feed</a></li>
+				<li><a href="/tags">Tags</a></li>
+				{%- if links.items %}
+				<li><a href="/links">Links</a></li>
+				{%- endif %}
+				<li><a href="/feed.xml">RSS</a></li>
+			</ul>
+		</nav>
+		<div class="h-card">
+			{% if hcard.photo -%}<img class="u-photo center" src="{{ hcard.photo }}" alt="h-card photo">{% endif %}
+			<p><a class="u-url" rel="me" href="/">{{ hcard.name }}</a></p>
+			{% if hcard.email -%}<p><a class="u-email" href="mailto:{{ hcard.email }}">{{ hcard.email }}</a></p>{% endif %}
+			{% if hcard.note -%}<p class="p-note">{{ hcard.note }}</p>{% endif %}
+		</div>
+	</section>
+</header>

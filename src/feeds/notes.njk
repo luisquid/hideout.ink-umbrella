@@ -1,0 +1,11 @@
+---
+title: notes
+eleventyExcludeFromCollections: true
+layout: layouts/list.njk
+pagination:
+  data: collections.note
+  size: 10
+  alias: entries
+  reverse: true
+permalink: "note{% if pagination.pageNumber > 0 %}/{{ pagination.pageNumber }}{% endif %}/"
+---

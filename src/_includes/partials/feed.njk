@@ -1,0 +1,11 @@
+{%- if entries | length %}
+<section class="h-feed">
+{% for entry in entries -%}
+	{% include entry.data.partial %}
+{%- endfor %}
+</section>
+{%- else %}
+<article>
+	<p>No posts found</p>
+</article>
+{%- endif %}

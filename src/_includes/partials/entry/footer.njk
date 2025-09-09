@@ -1,0 +1,14 @@
+<footer>
+	{%- if entry.data.tags or tags %}
+	<ul class="tags">
+		<li>Categories:</li>
+		{%- for tag in entry.data.tags or tags %}
+		<li><a class="p-category" href="/tags/{{ tag | slug }}">{{ tag }}</a></li>
+		{%- endfor %}
+	</ul>
+	{%- endif %}
+	<p class="between">
+		<span>Posted in <a href="/{{ entry.data.postType or postType }}">{{ entry.data.postType or postType }}</a></span>
+		<a href="{{ entry.url }}"><time class="dt-published" datetime="{{ entry.date | toISO }}">{{ entry.date | dateToFormat('yyyy-MM-dd HH:mm') }}</time></a>
+	</p>
+</footer>

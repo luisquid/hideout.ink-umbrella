@@ -1,0 +1,11 @@
+---
+title: tags
+layout: layouts/default.njk
+eleventyExcludeFromCollections: true
+---
+<h1>Tags</h1>
+<ul>
+{% for tag, items in collections.tagList %}
+	<li><a href="{{ tag | slug }}">{{ tag }}</a> ({{ items.length }})</li>
+{% endfor %}
+</ul>

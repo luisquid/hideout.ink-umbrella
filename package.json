@@ -1,0 +1,43 @@
+{
+  "name": "umbrella",
+  "version": "1.0.0",
+  "description": "11ty starter project with indieauth, micropub, and webmentions built in",
+  "main": "eleventy.config.js",
+  "scripts": {
+    "clean": "rm -rf _site",
+    "prebuild": "npm run clean",
+    "build:11ty": "eleventy",
+    "build": "npm run build:11ty",
+    "prestart": "npm run clean",
+    "start": "eleventy --serve"
+  },
+  "keywords": [
+    "11ty",
+    "indieweb",
+    "micropub",
+    "webmention",
+    "webmentions",
+    "indieauth",
+    "serverless"
+  ],
+  "author": "Benji Encalada Mora (https://benji.dog)",
+  "homepage": "https://github.com/benjifs/umbrella",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/benjifs/umbrella.git"
+  },
+  "bugs": {
+    "url": "https://github.com/benjifs/umbrella/issues"
+  },
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "@11ty/eleventy": "^3.1.2",
+    "@11ty/eleventy-plugin-rss": "^2.0.4",
+    "@benjifs/github-store": "^0.2.0",
+    "@benjifs/micropub": "^2.0.1",
+    "dotenv": "^17.2.2",
+    "webmention-handler-netlify-blobs": "^0.3.0",
+    "webmention-receiver": "^0.6.0"
+  }
+}

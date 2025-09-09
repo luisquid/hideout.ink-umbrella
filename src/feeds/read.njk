@@ -1,0 +1,11 @@
+---
+title: read
+eleventyExcludeFromCollections: true
+layout: layouts/list.njk
+pagination:
+  data: collections.read
+  size: 10
+  alias: entries
+  reverse: true
+permalink: "read{% if pagination.pageNumber > 0 %}/{{ pagination.pageNumber }}{% endif %}/"
+---

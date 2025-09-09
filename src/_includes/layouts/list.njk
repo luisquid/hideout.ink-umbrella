@@ -1,0 +1,14 @@
+---
+layout: layouts/default.njk
+eleventyExcludeFromCollections: true
+---
+<section>
+	<h1>{{ title }}<a href="/{{ title }}.atom" title="RSS feed"><img src="/icons/rss-simple.svg" alt="RSS Feed"></a></h1>
+	{%- include "partials/feed.njk" %}
+	{%- if pagination.pages.length > 1 %}
+	<footer class="pagination center">
+		<a {% if pagination.href.previous %}href="{{ pagination.href.previous }}"{% endif %} rel="prev">←</a><!--
+		--><a {% if pagination.href.next %}href="{{ pagination.href.next }}"{% endif %} rel="next">→</a>
+	</footer>
+	{% endif -%}
+</section>

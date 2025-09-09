@@ -1,0 +1,11 @@
+---
+title: articles
+eleventyExcludeFromCollections: true
+layout: layouts/list.njk
+pagination:
+  data: collections.article
+  size: 10
+  alias: entries
+  reverse: true
+permalink: "article{% if pagination.pageNumber > 0 %}/{{ pagination.pageNumber }}{% endif %}/"
+---
