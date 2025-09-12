@@ -35,6 +35,7 @@
     "@11ty/eleventy": "^3.1.2",
     "@11ty/eleventy-plugin-rss": "^2.0.4",
     "@benjifs/github-store": "^0.2.0",
+    "@benjifs/indieauth": "github:benjifs/indieauth",
     "@benjifs/micropub": "^2.0.1",
     "dotenv": "^17.2.2",
     "webmention-handler-netlify-blobs": "^0.3.0",
