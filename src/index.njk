@@ -4,6 +4,13 @@ eleventyExcludeFromCollections: true
 ---
 <h1>Introduction</h1>
 <p>This is a short introduction</p>
+<ul>
+	<li>repository: {{ metadata.repository }}</li>
+	<li>branch: {{ metadata.branch }}</li>
+	<li>head: {{ metadata.head }}</li>
+	<li>envs:</li>
+</ul>
+<pre><code>{{ metadata.envs }}</code></pre>
 <hr>
 <h2>Latest posts <a href="/feed.xml"><img src="/icons/rss-simple.svg" alt="RSS Feed"></a></h2>
 {%- set entries = collections.feed | reverse | limit(3) -%}
