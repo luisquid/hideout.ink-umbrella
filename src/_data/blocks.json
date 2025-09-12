@@ -1,4 +1,5 @@
 {
+	"indieauth-metadata": "/.well-known/oauth-authorization-server",
 	"authorization_endpoint": "/auth",
 	"token_endpoint": "/token",
 	"micropub": "/micropub",
