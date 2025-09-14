@@ -11,4 +11,6 @@
 		<span>Posted in <a href="/{{ entry.data.postType or postType }}">{{ entry.data.postType or postType }}</a></span>
 		<a href="{{ entry.url }}"><time class="dt-published" datetime="{{ entry.date | toISO }}">{{ entry.date | dateToFormat('yyyy-MM-dd HH:mm') }}</time></a>
 	</p>
+	<section id="interactions">
+	</section>
 </footer>

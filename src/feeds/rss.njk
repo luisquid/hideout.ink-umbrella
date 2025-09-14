@@ -13,7 +13,7 @@ feeds:
 - watch
 - feed
 - all
-permalink: "/{{ feed }}.atom"
+permalink: "/{{ feed }}.xml"
 ---
-{%- set entries = collections[feed] | reverse | limit(10) %}
-{%- include "layouts/atom.njk" %}
+{%- set entries = collections['feedAll' if feed == 'all' else feed] | reverse | limit(10) %}
+{%- include "layouts/rss.njk" %}
