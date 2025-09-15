@@ -15,6 +15,9 @@
   [plugins.inputs]
     feed = "latest.xml"
 
+[[plugins]]
+  package = "netlify-plugin-bundle-env"
+
 [template.environment]
   NAME = "Your name for your h-card"
   SECRET = "Random long string of characters"

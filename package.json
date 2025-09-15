@@ -44,6 +44,7 @@
   },
   "devDependencies": {
     "@11ty/eleventy-fetch": "^5.1.0",
+    "netlify-plugin-bundle-env": "^0.7.2",
     "netlify-webmentions-plugin": "^1.0.1"
   }
 }
