@@ -21,7 +21,7 @@ if (!GITHUB_USER && !GITHUB_REPO && REPOSITORY_URL?.indexOf('github.com')) {
 }
 // @benjifs/indieauth normalizes URL so this should too here
 const normalizeMe = (URL || '').replace(/\/+$/, '') + '/'
-console.log(`Github info: ${username} - ${repo} - ${BRANCH} - ${GITHUB_BRANCH}`)
+console.log(`Github info: ${REPOSITORY_URL} - ${username} - ${repo} - ${BRANCH} - ${GITHUB_BRANCH}`)
 export const micropub = new Micropub({
 	store: new GitHubStore({
 		token: GITHUB_TOKEN,
