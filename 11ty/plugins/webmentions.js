@@ -34,5 +34,17 @@ export const webmentionsPlugin = config => {
 	config.addFilter('isBridged', url =>
 		Array.from(['/@', 'did:plc']).some(i => (url || '').includes(i)))
 
+	config.addFilter('socials', wms => {
+		const grouped = {}
+		for (const wm of wms) {
+			const target = wm.url?.split('#')[0]
+			if (!target) continue
+			if (!['like', 'reply', 'repost'].includes(wm.type)) continue
+			if (!grouped[target]) grouped[target] = { like: 0, reply: 0, repost: 0 }
+			grouped[target][wm.type]++
+		}
+		return grouped
+	})
+
 	config.addGlobalData('webmentions', webmentions)
 }

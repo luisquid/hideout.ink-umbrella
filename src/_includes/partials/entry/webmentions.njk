@@ -1,0 +1,44 @@
+{%- set postPath = entry.url or page.url %}
+{%- set mentions = webmentions[hcard.url + postPath] or [] %}
+<details id="interactions" open>
+	<summary>Interactions</summary>
+	<ul>
+		{%- for mention in mentions %}
+			{%- if not (mention.source | isBridged) and mention.type in ['h-entry', 'reply', 'mention', 'like', 'bookmark'] %}
+			<li>
+				{%- if mention.type == 'reply' %}
+				<p class="p-comment h-cite"><a class="u-author h-card" href="{{ mention.author.url }}">{{ mention.author.name or mention.author.url }}</a>: <span class="p-content">{{ mention.content.text or mention.content.value }}</span>
+				<a class="u-url" href="{{ mention.source }}"><time class="dt-published" datetime="{{ (mention.received or mention.parsed) | toISO }}">{{ (mention.received or mention.parsed) | dateToFormat('LLL dd, yyyy') }}</time></a></p>
+				{%- elif mention.type == 'like' %}
+				<p class="p-like h-cite">Liked by <a class="u-url" href="{{ mention.source }}">{{ mention.author.name or mention.source }}</a></p>
+				{%- elif mention.type == 'bookmark' %}
+				<p class="p-bookmark h-cite">Bookmarked by <a class="u-url" href="{{ mention.source }}">{{ mention.author.name or mention.source }}</a></p>
+				{%- else %}
+				<p class="p-comment h-cite">Mentioned on <a class="u-url" href="{{ mention.source }}">{{ mention.name or mention.source }}</a></p>
+				{%- endif %}
+			</li>
+			{%- endif %}
+		{%- endfor %}
+		{%- set networks = (mentions | socials) %}
+		{%- for url, actions in networks %}
+			<li>
+				<a href="{{ url }}">
+					{%- if 'https://bsky.app' in url %}Bluesky
+					{%- else %}Fediverse{% endif -%}
+				</a>
+				{% if actions.mention %} {{ actions.mention }} <span aria-label="mentions">🔗</span> {% endif %}
+				{% if actions.like %} {{ actions.like }} <span aria-label="likes">❤️</span> {% endif %}
+				{% if actions.repost %} {{ actions.repost }} <span aria-label="reposts">🔁</span> {% endif %}
+				{% if actions.reply %} {{ actions.reply }} <span aria-label="replies">💬</span> {% endif %}
+			</li>
+		{%- endfor %}
+	</ul>
+	{%- if blocks.webmention %}
+	<p>You can also add the link of your post below and it will show up here after the site rebuilds.</p>
+	<form action="{{ blocks.webmention }}" method="post">
+		<input type="url" name="source" placeholder="Link to your post" aria-label="URL">
+		<input type="hidden" name="target" value="{{ hcard.url }}{{ page.url }}">
+		<input type="submit" value="Send">
+	</form>
+	{%- endif %}
+</details>
