@@ -13,6 +13,7 @@ feeds:
 - watch
 - feed
 - all
+- latest
 permalink: "/{{ feed }}.xml"
 ---
 {%- set entries = collections['feedAll' if feed == 'all' else feed] | reverse | limit(10) %}

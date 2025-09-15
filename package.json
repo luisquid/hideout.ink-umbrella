@@ -41,5 +41,9 @@
     "dotenv": "^17.2.2",
     "webmention-handler-netlify-blobs": "^0.3.0",
     "webmention-receiver": "^0.6.0"
+  },
+  "devDependencies": {
+    "@11ty/eleventy-fetch": "^5.1.0",
+    "netlify-webmentions-plugin": "^1.0.0"
   }
 }

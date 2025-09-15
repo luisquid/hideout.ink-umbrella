@@ -6,7 +6,7 @@ const collections = {
 	feed: collection => collection.getFilteredByGlob(['src/article/*.md', 'src/note/*.md']).filter(p => excludeVisibility(p)),
 	feedAll: collection => collection.getFilteredByGlob(['src/*/*.md']).filter(p => excludeVisibility(p)),
 	latest: collection => collection.getFilteredByGlob(['src/*/*.md']).sort((a, b) =>
-		dateToFormat(b.data.updated || b.date) - dateToFormat(a.data.updated || a.date)).slice(0, 10),
+		dateToFormat(a.data.updated || a.date) - dateToFormat(b.data.updated || b.date)).slice(0, 10),
 	tagList: collection => {
 		let tags = {}
 		collection.getAllSorted().forEach(item => {
