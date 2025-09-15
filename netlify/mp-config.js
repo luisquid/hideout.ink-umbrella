@@ -18,6 +18,9 @@ if (!GITHUB_USER && !GITHUB_REPO && REPOSITORY_URL?.indexOf('github.com')) {
 		repo = parts.at(-2)
 	}
 }
+// @benjifs/indieauth normalizes URL so this should too here
+const normalizeMe = (URL || '').replace(/\/+$/, '') + '/'
+
 export const micropub = new Micropub({
 	store: new GitHubStore({
 		token: GITHUB_TOKEN,
@@ -25,7 +28,7 @@ export const micropub = new Micropub({
 		repo: repo || GITHUB_REPO,
 		branch: BRANCH,
 	}),
-	me: URL,
+	me: normalizeMe,
 	tokenEndpoint: `${URL}/token`,
 	config: {
 		'media-endpoint': `${URL}/micropub-media`,
