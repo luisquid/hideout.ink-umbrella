@@ -24,6 +24,7 @@ a:not([href]) { opacity: .2 }
 	border-radius: 100%;
 }
 .h-entry img { max-width: 200px }
+.h-feed .h-entry { border-bottom: 1px solid var(--border-color) }
 
 ul.tags, ul.links {
 	list-style: none;
