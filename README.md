@@ -17,6 +17,8 @@ during the setup process to add them.
 | `SECRET` | Random long string of characters |
 | `PASSWORD_SECRET` | Password hashed with [bcrypt](https://en.wikipedia.org/wiki/Bcrypt) |
 | `GITHUB_TOKEN` | GitHub [Personal access token](https://github.com/benjifs/github-store#setup) |
+| `GITHUB_USER` | GitHub username |
+| `GITHUB_REPO` | GitHub repository |
 | `NAME` | Name for your [`h-card`](https://indieweb.org/h-card) |
 
 ### `SECRET`
@@ -33,6 +35,21 @@ Your password hashed with [bcrypt](https://en.wikipedia.org/wiki/Bcrypt). To do 
 You need one of the following tokens to work with the contents API:
 - [Personal access token (classic)](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic) with the `repo` scope selected.
 - [Fine-grained personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-fine-grained-personal-access-token) for the repository you want access to with `Read and write` access to **Contents** and `Read` access to **Metadata**.
+
+### `GITHUB_USER` and `GITHUB_REPO`
+> *NOTE*: Netlify provides a `REPOSITORY_URL` environment variable which could be
+> parsed to extract this information. However that environment variable is available
+> only at build time and not in the function. For now, set that them up as their
+> own variables.
+
+The `GITHUB_USER` and `GITHUB_REPO` for your site. For example for this site it would
+be:
+```
+GITHUB_USER=benjifs
+GITHUB_REPO=umbrella
+# optional
+GITHUB_BRANCH=demo
+```
 
 ### `NAME`
 Having a name as part of your [h-card](https://indieweb.org/h-card) is not required
