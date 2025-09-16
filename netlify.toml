@@ -11,6 +11,11 @@
   status = 200
 
 [[plugins]]
+  package = "netlify-plugin-bundle-env"
+  [plugins.inputs]
+    include = ["REPOSITORY_URL", "BRANCH"]
+
+[[plugins]]
   package = "netlify-webmentions-plugin"
   [plugins.inputs]
     feed = "latest.xml"
