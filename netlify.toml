@@ -1,6 +1,5 @@
 [build]
-  command = "echo \"REPOSITORY_URL=$REPOSITORY_URL\" >> .env && npm run build"
-  # command = "npm run build"
+  command = "npm run build"
   publish = "_site"
 
 [functions]
@@ -10,6 +9,9 @@
   from = "/*"
   to = "/.netlify/functions/:splat"
   status = 200
+
+[[plugins]]
+  package = "./plugins/use-build-envs.js"
 
 [[plugins]]
   package = "netlify-webmentions-plugin"
