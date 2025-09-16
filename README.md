@@ -4,6 +4,9 @@ A starter project to help you get setup with [IndieAuth](https://indieweb.org/In
 [Micropub](https://indieweb.org/Micropub), [Webmentions](https://indieweb.org/Webmention),
 and a simple site using [Eleventy](https://11ty.dev) as a static site generator.
 
+You can see a demo of what this site looks like at [umbrella.sploot.com](https://umbrella.sploot.com)
+and the code for it lives in the [demo branch](https://github.com/benjifs/umbrella/tree/demo).
+
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/benjifs/umbrella)
 
 ## Setup
