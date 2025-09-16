@@ -11,7 +11,9 @@
   status = 200
 
 [[plugins]]
-  package = "./plugins/use-build-envs"
+  package = "netlify-plugin-inline-functions-env"
+  [plugins.inputs]
+    include = ["REPOSITORY_URL"]
 
 [[plugins]]
   package = "netlify-webmentions-plugin"
