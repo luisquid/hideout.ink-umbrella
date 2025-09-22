@@ -42,8 +42,8 @@ You need one of the following tokens to work with the contents API:
 ### `GITHUB_USER` and `GITHUB_REPO`
 > *NOTE*: Netlify provides a `REPOSITORY_URL` environment variable which could be
 > parsed to extract this information. However that environment variable is available
-> only at build time and not in the function. For now, set that them up as their
-> own variables.
+> only at build time and not in the function. For now, set them up as their own
+> variables.
 
 The `GITHUB_USER` and `GITHUB_REPO` for your site. For example for this site it would
 be:
