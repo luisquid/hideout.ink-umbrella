@@ -2,7 +2,7 @@
 	"indieauth-metadata": "/.well-known/oauth-authorization-server",
 	"authorization_endpoint": "/auth",
 	"token_endpoint": "/token",
-	"micropub": "https://serverless-micropub.hideout.ink/micropub",
-	"micropub_media": "https://serverless-micropub.hideout.ink/micropub-media",
+	"micropub": "/micropub",
+	"micropub_media": "/micropub-media",
 	"webmention": "/webmention"
 }
