@@ -18,7 +18,7 @@ const collections = {
 	},
 }
 
-Array.from(['article', 'bookmark', 'note', 'read', 'watch']).forEach(type => {
+Array.from(['article', 'bookmark', 'note', 'read', 'watch', 'play']).forEach(type => {
 	collections[type] = collection => collection.getFilteredByGlob(`src/${type}/*.md`).filter(p => excludeVisibility(p))
 })
 
