@@ -1,0 +1,26 @@
+{%- set playOf = ('play-of' | getVariables) or entry.data['play-of'] -%}
+{%- set status = {
+	want: 'Want to play',
+	started: 'Playing',
+	finished: 'Played',
+} -%}
+{%- set rating = rating or entry.data.rating %}
+<article class="h-entry">
+	<h3>
+		<span class="u-read-of h-cite">
+			<a class="u-url" href="{{ playOf.url }}"><span class="p-name">{{ playOf.name }}</span></a>
+			<img class="u-photo" src="{{ playOf.photo }}" alt="{{ playOf.name }} cover" hidden>
+			<data class="p-uid" hidden>{{ playOf.uid }}</data>
+		</span>
+		{%- if rating %}
+		- <data class="p-rating" value="{{ rating }}">{{ rating | toStars }}</data>
+		{% endif %}
+	</h3>
+	<p class="center">
+		<img src="{{ playOf.photo }}" alt="{{ playOf.name }} cover">
+	</p>
+	<section class="e-content">
+	{{ (content or entry.content) | safe -}}
+	</section>
+	{% include "partials/entry/footer.njk" %}
+</article>
