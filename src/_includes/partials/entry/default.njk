@@ -4,6 +4,7 @@
 	{%- endif %}
 	<section class="e-content">
 	{{ (content or entry.content) | safe -}}
+		{% include "partials/entry/photo.njk" %}
 	</section>
 	{% include "partials/entry/footer.njk" %}
 </article>

@@ -1,0 +1,4 @@
+{%- set photo = ('photo' | getVariables) or entry.data['photo'] -%}
+
+{%- set fullsize = true -%}
+{%- include "../photo.njk" -%}

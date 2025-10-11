@@ -1,0 +1,11 @@
+---
+title: photos
+eleventyExcludeFromCollections: true
+layout: layouts/gallery.njk
+pagination:
+  data: collections.photo
+  size: 10
+  alias: entries
+  reverse: true
+permalink: "photo{% if pagination.pageNumber > 0 %}/{{ pagination.pageNumber }}{% endif %}/"
+---

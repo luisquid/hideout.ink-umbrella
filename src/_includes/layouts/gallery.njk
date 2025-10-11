@@ -1,0 +1,15 @@
+---
+layout: layouts/default.njk
+eleventyExcludeFromCollections: true
+---
+
+
+{%- set photos = collections.photo | reverse -%}
+<div class="h-feed grid">
+	{% for post in photos -%}
+	<a href="{{ post.url }}">
+		{%- set photo = (post.data.photo)-%}
+		{%- include "partials/photo.njk" -%}
+	</a>
+	{%- endfor %}
+</div>
