@@ -5,6 +5,7 @@ const excludeVisibility = (p, visibility = ['unlisted', 'private']) => !visibili
 const collections = {
 	feed: collection => collection.getFilteredByGlob(['src/article/*.md', 'src/note/*.md']).filter(p => excludeVisibility(p)),
 	feedAll: collection => collection.getFilteredByGlob(['src/*/*.md']).filter(p => excludeVisibility(p)),
+	photos: collection => collection.getFilteredByGlob('src/content/photo/*.md').filter(item => 'photo' in item.data).filter(p => excludeVisibility(p)),
 	latest: collection => collection.getFilteredByGlob(['src/*/*.md']).sort((a, b) =>
 		dateToFormat(a.data.updated || a.date) - dateToFormat(b.data.updated || b.date)).slice(0, 10),
 	tagList: collection => {
