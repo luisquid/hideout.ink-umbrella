@@ -2,7 +2,7 @@
 {%- if entries | length %}
 <section class="h-feed">
 {% for entry in entries -%}
-	<a href="{{ post.url }}">
+	<a href="{{ entry.url }}">
 		{%- set photo = (entry.data.photo)-%}
 		{%- include "partials/photo.njk" -%}
 	</a>
