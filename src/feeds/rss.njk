@@ -14,7 +14,7 @@ feeds:
 - feed
 - all
 - latest
-- photos
+- photo
 permalink: "/{{ feed }}.xml"
 ---
 {%- set entries = collections['feedAll' if feed == 'all' else feed] | reverse | limit(10) %}
