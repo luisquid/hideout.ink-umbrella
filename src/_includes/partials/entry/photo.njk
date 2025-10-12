@@ -1,4 +1,11 @@
 {%- set photo = ('photo' | getVariables) or entry.data['photo'] -%}
 
 {%- set fullsize = true -%}
+
+<article class="h-entry">
+{%- if entry.data.title or entry.title %}
+	<h3 class="p-title">{{ entry.data.title or entry.title }}</h3>
+	{%- endif %}
 {%- include "../photo.njk" -%}
+{% include "partials/entry/footer.njk" %}
+</article>

@@ -8,3 +8,7 @@ eleventyExcludeFromCollections: true
 <h2>Latest posts <a href="/feed.xml"><img src="/icons/rss-simple.svg" alt="RSS Feed"></a></h2>
 {%- set entries = collections.feed | reverse | limit(3) -%}
 {% include "partials/feed.njk" %}
+
+<h2>Latest Photos <a href="/photos.xml"><img src="/icons/rss-simple.svg" alt="RSS Feed"></a></h2>
+{%- set entries = collections.photo | reverse | limit(3) -%}
+{% include "partials/gallery.njk" %}

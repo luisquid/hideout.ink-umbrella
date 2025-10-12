@@ -2,7 +2,8 @@
 layout: layouts/default.njk
 eleventyExcludeFromCollections: true
 ---
-
+<section>
+	<h1>{{ title }}<a href="/{{ title }}.xml" title="RSS feed"><img src="/icons/rss-simple.svg" alt="RSS Feed"></a></h1>
 
 {%- set photos = collections.photo | reverse -%}
 <div class="h-feed grid">
@@ -13,3 +14,4 @@ eleventyExcludeFromCollections: true
 	</a>
 	{%- endfor %}
 </div>
+</section>

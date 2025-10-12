@@ -1,0 +1,15 @@
+{%- set isList = true %}
+{%- if entries | length %}
+<section class="h-feed">
+{% for entry in entries -%}
+	<a href="{{ post.url }}">
+		{%- set photo = (entry.data.photo)-%}
+		{%- include "partials/photo.njk" -%}
+	</a>
+{%- endfor %}
+</section>
+{%- else %}
+<article>
+	<p>No posts found</p>
+</article>
+{%- endif %}
