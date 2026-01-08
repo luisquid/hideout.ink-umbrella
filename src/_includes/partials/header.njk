@@ -1,21 +1,27 @@
 <header>
-	<section class="between">
-		<nav>
-			<ul>
-				<li><a href="/">Home</a></li>
-				<li><a href="/feed">Feed</a></li>
-				<li><a href="/tags">Tags</a></li>
-				{%- if links.items %}
-				<li><a href="/links">Links</a></li>
-				{%- endif %}
-				<li><a href="/feed.xml">RSS</a></li>
-			</ul>
-		</nav>
+	<section class="center">
 		<div class="h-card">
+			<p><a class="u-url" rel="me" href="/">
 			{% if hcard.photo -%}<img class="u-photo center" src="{{ hcard.photo }}" alt="h-card photo">{% endif %}
-			<p><a class="u-url" rel="me" href="/">{{ hcard.name }}</a></p>
+			{% if hcard.datahidden -%}
+			{{ hcard.name }}
+			{% endif %}
+			</a></p>
+			{% if hcard.datahidden -%}
 			{% if hcard.email -%}<p><a class="u-email" href="mailto:{{ hcard.email }}">{{ hcard.email }}</a></p>{% endif %}
 			{% if hcard.note -%}<p class="p-note">{{ hcard.note }}</p>{% endif %}
+			{% endif %}
 		</div>
+		<nav>
+			<ul>
+				<li><a href="/">/home</a></li>
+				<li><a href="/all">/feed</a></li>
+				<li><a href="/tags">/tags</a></li>
+				{%- if links.items %}
+				<li><a href="/links">/links</a></li>
+				{%- endif %}
+				<li><a href="/feed.xml">/rss</a></li>
+			</ul>
+		</nav>
 	</section>
 </header>

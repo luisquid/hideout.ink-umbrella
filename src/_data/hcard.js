@@ -4,4 +4,5 @@ export default {
 	email: process.env.EMAIL,
 	note: process.env.NOTE,
 	photo: process.env.PHOTO,
+	datahidden: false,
 }
