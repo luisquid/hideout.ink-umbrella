@@ -2,9 +2,12 @@ body
 {
     background-color: #0f0f0f;
     font-family: "Lucida Console", Monaco, "Consolas", monospace;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
-nav
+.site-footer
 {
-    
+    margin-top: auto;
 }
