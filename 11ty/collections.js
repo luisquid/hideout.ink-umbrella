@@ -3,7 +3,7 @@ import { dateToFormat } from './utils.js'
 const excludeVisibility = (p, visibility = ['unlisted', 'private']) => !visibility.includes(p.data.visibility)
 
 const collections = {
-	feed: collection => collection.getFilteredByGlob(['src/article/*.md', 'src/note/*.md']).filter(p => excludeVisibility(p)),
+	feed: collection => collection.getFilteredByGlob(['src/article/*/*.md','src/article/*.md', 'src/note/*.md']).filter(p => excludeVisibility(p)),
 	feedAll: collection => collection.getFilteredByGlob(['src/*/*.md']).filter(p => excludeVisibility(p)),
 	photos: collection => collection.getFilteredByGlob('src/content/photo/*.md').filter(item => 'photo' in item.data).filter(p => excludeVisibility(p)),
 	latest: collection => collection.getFilteredByGlob(['src/*/*.md']).sort((a, b) =>
@@ -20,7 +20,7 @@ const collections = {
 }
 
 Array.from(['article', 'bookmark', 'note', 'read', 'watch', 'play', 'photo']).forEach(type => {
-	collections[type] = collection => collection.getFilteredByGlob(`src/${type}/*.md`).filter(p => excludeVisibility(p))
+	collections[type] = collection => collection.getFilteredByGlob([`src/${type}/*.md`, `src/${type}/*/*.md`]).filter(p => excludeVisibility(p))
 })
 
 export default (config) => {
