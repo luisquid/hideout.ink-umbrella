@@ -6,7 +6,7 @@ eleventyExcludeFromCollections: true
 <p>This is a short introduction</p>
 <hr>
 <h2>Recent <a href="/all.xml"><img src="/icons/rss-simple.svg" alt="RSS Feed"></a></h2>
-{%- set entries = collections.all | reverse | limit(5) -%}
+{%- set entries = collections.all | reverse | limit(3) -%}
 {% include "partials/feed.njk" %}
 
 <h2>Latest Photos <a href="/photo.xml"><img src="/icons/rss-simple.svg" alt="RSS Feed"></a></h2>
