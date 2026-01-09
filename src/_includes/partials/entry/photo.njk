@@ -6,6 +6,9 @@
 {%- if entry.data.title or entry.title %}
 	<h3 class="p-title">{{ entry.data.title or entry.title }}</h3>
 	{%- endif %}
-{%- include "../photo.njk" -%}
+
+<p class="center fullscreen">
+	{%- include "../photo.njk" -%}
+</p>
 {% include "partials/entry/footer.njk" %}
 </article>
