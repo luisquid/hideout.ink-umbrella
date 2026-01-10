@@ -4,12 +4,12 @@ title: "Don't forget, I'm glad you're here"
 date: 2023-10-14
 tags: ["blog", "personal", "2023"]
 description: ""
-
-photo: 'img/tattoo-cover.png' # image path/url
 client_id: 'https://sparkles.sploot.com/id'
 ---
 
-<img src="img/tattoo-cover.png">
+<div  class ="center fullscreen">
+    <img src="/uploads/tattoo-cover.png">
+</div>
 
 This is a list of resources, quotes, pieces of writting, short clips that often help bring me back from a rough patch: 
 
@@ -19,11 +19,13 @@ This is a list of resources, quotes, pieces of writting, short clips that often 
 > “Life happens wherever you are, whether you make it or not.”
 ― Uncle Iroh
 
-{{< youtube euUGPQZoHw >}}
-
-{{< youtube zryfjSaxXLo >}}
+<div class = "center">
+{% youtube "https://www.youtube.com/watch?v=zryfjSaxXLo" %}
+</div>
 
 > “Be strong enough to be gentle.”
 ― Larry Cullen
 
-{{< youtube D6lmm44haYE >}}
+<div class = "center">
+{% youtube "https://www.youtube.com/watch?v=D6lmm44haYE" %}
+</div>

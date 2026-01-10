@@ -15,6 +15,16 @@ export default (config) => {
 	config.addPlugin(globalData)
 	config.addPlugin(plugins)
 
+	config.addAsyncShortcode("youtube", async function(videoURL, title){
+		const url = new URL(videoURL);
+		const id = url.searchParams.get("v");
+		return `
+			<iframe class="yt-shortcode" src="https://www.youtube-nocookie.com/embed/${id}" title="YouTube video player${
+			title ? ` for ${title}` : ""
+			}" frameborder="0" allowfullscreen width="100%" height="500px"></iframe>
+		`;	
+	})
+
 	return {
 		dir: {
 			input: 'src'

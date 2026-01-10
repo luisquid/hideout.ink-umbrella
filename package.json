@@ -38,6 +38,7 @@
     "@benjifs/indieauth": "github:benjifs/indieauth",
     "@benjifs/micropub": "^2.0.1",
     "dotenv": "^17.2.2",
+    "eleventy-plugin-blog-tools": "^0.4.1",
     "webmention-handler-netlify-blobs": "^0.3.0",
     "webmention-receiver": "^0.6.0"
   },
