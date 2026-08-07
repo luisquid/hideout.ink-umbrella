@@ -7,7 +7,7 @@ const collections = {
 	feedAll: collection => collection.getFilteredByGlob(['src/*/*.md']).filter(p => excludeVisibility(p)),
 	photos: collection => collection.getFilteredByGlob('src/content/photo/*.md').filter(item => 'photo' in item.data).filter(p => excludeVisibility(p)),
 	latest: collection => collection.getFilteredByGlob(['src/*/*.md']).sort((a, b) =>
-		dateToFormat(a.data.updated || a.date) - dateToFormat(b.data.updated || b.date)).slice(0, 10),
+		dateToFormat(a.data.updated || a.date) - dateToFormat(b.data.updated || b.date)).slice(0, 25),
 	tagList: collection => {
 		let tags = {}
 		collection.getAllSorted().forEach(item => {
@@ -19,8 +19,8 @@ const collections = {
 	},
 }
 
-Array.from(['article', 'bookmark', 'note', 'read', 'watch', 'play', 'photo']).forEach(type => {
-	collections[type] = collection => collection.getFilteredByGlob([`src/${type}/*.md`, `src/${type}/*/*.md`]).filter(p => excludeVisibility(p))
+Array.from(['article', 'bookmark', 'note', 'read', 'watch', 'play', 'photo', 'listen']).forEach(type => {
+	collections[type] = collection => collection.getFilteredByGlob(`src/${type}/*.md`).filter(p => excludeVisibility(p))
 })
 
 export default (config) => {
